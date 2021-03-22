@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\vehiculo;
+use App\misClases\StandarResponse;
 use Illuminate\Http\Request;
 
-class VehiculoController extends Controller {
- /**
-             * Display a listing of the resource.
-             *
-             * @return \Illuminate\Http\Response
-             */
-public function index()
+class VehiculoController extends Controller
 {
-}
+     /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+	public function index()
+	{
+		return StandarResponse::OK(vehiculo::all());
+	}
  /**
      * Store a newly created resource in storage.
      *
@@ -22,6 +25,14 @@ public function index()
              */
 public function store(Request $request)
 {
+    echo $request;
+
+    $result = "hola";
+    //$result = vehiculo::create([
+     //           "nombreVehiculo" => "Vehiculo test"
+    //]);
+    
+    return StandarResponse::OK(json_encode($result),201);
 }
  /**
      * Display the specified resource.
@@ -29,9 +40,10 @@ public function store(Request $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
              */
-public function show($id)
-{
-}
+	public function show($id)
+	{
+		return StandarResponse::OK(vehiculo::find($id));
+	}
  /**
      * Update the specified resource in storage.
      *
