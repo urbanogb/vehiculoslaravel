@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\evento;
+use App\Models\Evento;
 use App\misClases\StandarResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;<Em></Em>
 
 class EventoController extends Controller
 {
@@ -15,7 +15,7 @@ class EventoController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(evento::all());
+		return StandarResponse::returnOK(Evento::all());
 	}
  /**
      * Store a newly created resource in storage.
@@ -34,7 +34,7 @@ public function store(Request $request)
              */
 	public function show($id)
 	{
-		return StandarResponse::OK(evento::find($id));
+		return StandarResponse::OK(Evento::find($id));
 	}
  /**
      * Update the specified resource in storage.

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\vehiculo;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
 class pepe{
@@ -20,11 +20,11 @@ class PruebasController extends Controller
      */
     public function index()
     {
-//       return vehiculo::all(); 
+//       return Vehiculo::all(); 
         $result = new pepe();
         $result->code = 1;
         $result->mensajes[] = "hola";
-        $result->data = vehiculo::all();
+        $result->data = Vehiculo::all();
         return json_encode($result);
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\misClases\BDDef;
-use App\Models\vehiculo;
+use App\Models\Vehiculo;
 use App\misClases\StandarResponse;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class VehiculoController extends Controller
     public function index()
     {
         /*
-    $result = vehiculo::create([
+    $result = Vehiculo::create([
                 "nombreVehiculo" => "Vehiculo test"
                 , "marcaYModelo" => "marcaymodelo"
                 , "matricula" => "sinmat"
@@ -26,7 +26,7 @@ class VehiculoController extends Controller
                 , "observaciones" => "Delectus ut aut autem voluptatibus iusto."
     ]);
     */
-        return StandarResponse::OK(vehiculo::all());
+        return StandarResponse::OK(Vehiculo::all());
     }
     /**
      * Store a newly created resource in storage.
@@ -58,7 +58,7 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        return StandarResponse::OK(vehiculo::find($id));
+        return StandarResponse::OK(Vehiculo::find($id));
     }
     /**
      * Update the specified resource in storage.

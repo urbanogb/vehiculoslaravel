@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\reserva;
+use App\Models\Reserva;
 use App\misClases\StandarResponse;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class ReservaController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(reserva::all());
+		return StandarResponse::returnOK(Reserva::all());
 	}
  /**
      * Store a newly created resource in storage.
@@ -34,7 +34,7 @@ public function store(Request $request)
              */
 	public function show($id)
 	{
-		return StandarResponse::OK(reserva::find($id));
+		return StandarResponse::OK(Reserva::find($id));
 	}
  /**
      * Update the specified resource in storage.

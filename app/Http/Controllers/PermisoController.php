@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\permiso;
+use App\Models\Permiso;
 use App\misClases\StandarResponse;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class PermisoController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(permiso::all());
+		return StandarResponse::returnOK(Permiso::all());
 	}
  /**
      * Store a newly created resource in storage.
@@ -34,7 +34,7 @@ public function store(Request $request)
              */
 	public function show($id)
 	{
-		return StandarResponse::OK(permiso::find($id));
+		return StandarResponse::OK(Permiso::find($id));
 	}
  /**
      * Update the specified resource in storage.
