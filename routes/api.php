@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PruebasController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\ReservaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +31,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/singleaction', SingleActionController::class);
 Route::resource('/pruebas', PruebasController::class);
 Route::resource('/vehiculos', VehiculoController::class);
+Route::resource('/eventos', EventoController::class);
+Route::resource('/reservas', ReservaController::class);
