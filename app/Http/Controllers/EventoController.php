@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\misClases\StandarResponse;
-use Illuminate\Http\Request;<Em></Em>
+use Illuminate\Http\Request;
 
 class EventoController extends Controller
 {
