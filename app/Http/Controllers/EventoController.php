@@ -15,7 +15,7 @@ class EventoController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(Evento::all());
+		return StandarResponse::OK(Evento::all());
 	}
  /**
      * Store a newly created resource in storage.

@@ -15,7 +15,7 @@ class ReservaController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(Reserva::all());
+		return StandarResponse::OK(Reserva::all());
 	}
  /**
      * Store a newly created resource in storage.

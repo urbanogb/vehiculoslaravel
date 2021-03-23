@@ -15,7 +15,7 @@ class PermisoController extends Controller
    */
 	public function index()
 	{
-		return StandarResponse::returnOK(Permiso::all());
+		return StandarResponse::OK(Permiso::all());
 	}
  /**
      * Store a newly created resource in storage.
