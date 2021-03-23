@@ -27,7 +27,7 @@ class VehiculoFactory extends Factory
     {
         return [
             'nombreVehiculo' => "Vehiculo ". (++VehiculoFactory::$auxCont),
-            'marcaYModelo' => $this->faker->name ,
+            'marcaModelo' => $this->faker->name ,
             'matricula' => VehiculoFactory::generateMatricula(VehiculoFactory::$auxCont,$this),
             'anoCompra' => 2020 - VehiculoFactory::$auxCont,
             'estado' => 0,

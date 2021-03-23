@@ -26,7 +26,7 @@ class CreateTables1 extends Migration
 		Schema::create(BDDef::Vehiculotn, function (Blueprint $table) {
 			$table->id();
 			$table->string('nombreVehiculo');
-			$table->string('marcaYModelo');
+			$table->string('marcaModelo');
 			$table->string('matricula');
 			$table->integer('anoCompra');
 			$table->set('estado',['activo','baja']);

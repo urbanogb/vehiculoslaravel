@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+use App\misClases\BDDef;
+
 class VehiculoTest extends TestCase
 {
 
@@ -41,18 +43,19 @@ class VehiculoTest extends TestCase
             '/api/vehiculos',
             [
                 "nombreVehiculo" => "Vehiculo test"
-                , "marcaYModelo" => "marcaymodelo"
+                , "marcaModelo" => "mym test "
                 , "matricula" => "sinmat"
                 , "anoCompra" => 2019
-                , "estado" => ""
+                , "estado" => BDDef::ev_activo
                 , "observaciones" => "Delectus ut aut autem voluptatibus iusto."
             ]
         );
 
         $response
             ->assertStatus(201)
-            ->assertJson([
+            ->assertJson(['data' => [
                 'nombreVehiculo' => 'Vehiculo test',
+                ]
             ]);
         # code...
     }
