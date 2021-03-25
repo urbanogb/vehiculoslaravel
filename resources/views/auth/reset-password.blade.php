@@ -15,11 +15,11 @@
             <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <!-- Email Address -->
+            <!-- username Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="username" :value="__('username')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username', $request->username)" required autofocus />
             </div>
 
             <!-- Password -->
