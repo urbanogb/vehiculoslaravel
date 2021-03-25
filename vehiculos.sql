@@ -26,18 +26,7 @@ CREATE TABLE IF NOT EXISTS `adonis_schema` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla vehiculos.adonis_schema: ~8 rows (aproximadamente)
-/*!40000 ALTER TABLE `adonis_schema` DISABLE KEYS */;
-INSERT INTO `adonis_schema` (`id`, `name`, `batch`, `migration_time`) VALUES
-	(1, '1503248427885_user', 1, '2021-03-22 22:25:59'),
-	(2, '1503248427886_token', 1, '2021-03-22 22:25:59'),
-	(3, '1600851977778_permisos_schema', 1, '2021-03-22 22:25:59'),
-	(4, '1600852081473_vehiculos_schema', 1, '2021-03-22 22:25:59'),
-	(5, '1600852093106_reservas_schema', 1, '2021-03-22 22:25:59'),
-	(6, '1600852099777_eventos_schema', 1, '2021-03-22 22:25:59'),
-	(7, '1600933654427_imagenes_schema', 1, '2021-03-22 22:25:59'),
-	(8, '1600995105587_documentos_schema', 1, '2021-03-22 22:25:59');
-/*!40000 ALTER TABLE `adonis_schema` ENABLE KEYS */;
+
 
 -- Volcando estructura para tabla vehiculos.documentos
 DROP TABLE IF EXISTS `documentos`;
