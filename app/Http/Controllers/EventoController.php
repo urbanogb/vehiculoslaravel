@@ -58,6 +58,19 @@ class EventoController extends Controller
              */
 public function update(Request $request, $id)
 {
+	try {
+		$result = Evento::find($id);
+		$result->vehiculo_id= $request->vehiculo_id;
+		$result->FechaYHoraEvento= $request->FechaYHoraEvento;
+		$result->descripcionEvento= $request->descripcionEvento;
+		$result->avisar= $request->avisar;
+		$result->save();
+	} catch (\Exception $ex) {
+		echo "\n";
+		echo $ex->getMessage();
+		echo "\n";
+	}
+	return response(StandarResponse::OK($result), 200);
 }
  /**
      * Remove the specified resource from storage.
@@ -67,5 +80,7 @@ public function update(Request $request, $id)
              */
 public function destroy($id)
 {
+	$count = Evento::destroy($id);
+	return response(StandarResponse::OK($id), 200);
 }
 }

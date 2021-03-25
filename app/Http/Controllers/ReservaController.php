@@ -23,27 +23,27 @@ class ReservaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
              */
-			public function store(Request $request)
-			{
-				try {
-					$result = new Reserva;
-					$result->vehiculo_id= $request->vehiculo_id;
-					$result->user_id= $request->user_id;
-					$result->fechaYHoraInicio= $request->fechaYHoraInicio;
-					$result->fechaYHoraFin= $request->fechaYHoraFin;
-					$result->fechaYHoraEntregaLlaves= $request->fechaYHoraEntregaLlaves;
-					$result->fechaYHoraDevolucionLlaves= $request->fechaYHoraDevolucionLlaves;
-					$result->estadoReserva= $request->estadoReserva;
-					$result->observaciones= $request->observaciones;
-					$result->motivoAnulacion= $request->motivoAnulacion;
-					$result->save();
-				} catch (\Exception $ex) {
-					echo "\n";
-					echo $ex->getMessage();
-					echo "\n";
-				}
-				return response(StandarResponse::OK($result), 201);
-			}
+	public function store(Request $request)
+	{
+		try {
+			$result = new Reserva;
+			$result->vehiculo_id= $request->vehiculo_id;
+			$result->user_id= $request->user_id;
+			$result->fechaYHoraInicio= $request->fechaYHoraInicio;
+			$result->fechaYHoraFin= $request->fechaYHoraFin;
+			$result->fechaYHoraEntregaLlaves= $request->fechaYHoraEntregaLlaves;
+			$result->fechaYHoraDevolucionLlaves= $request->fechaYHoraDevolucionLlaves;
+			$result->estadoReserva= $request->estadoReserva;
+			$result->observaciones= $request->observaciones;
+			$result->motivoAnulacion= $request->motivoAnulacion;
+			$result->save();
+		} catch (\Exception $ex) {
+			echo "\n";
+			echo $ex->getMessage();
+			echo "\n";
+		}
+		return response(StandarResponse::OK($result), 201);
+	}
  /**
      * Display the specified resource.
      *
@@ -63,6 +63,24 @@ class ReservaController extends Controller
              */
 public function update(Request $request, $id)
 {
+	try {
+		$result = Reserva::find($id);
+		$result->vehiculo_id= $request->vehiculo_id;
+		$result->user_id= $request->user_id;
+		$result->fechaYHoraInicio= $request->fechaYHoraInicio;
+		$result->fechaYHoraFin= $request->fechaYHoraFin;
+		$result->fechaYHoraEntregaLlaves= $request->fechaYHoraEntregaLlaves;
+		$result->fechaYHoraDevolucionLlaves= $request->fechaYHoraDevolucionLlaves;
+		$result->estadoReserva= $request->estadoReserva;
+		$result->observaciones= $request->observaciones;
+		$result->motivoAnulacion= $request->motivoAnulacion;
+		$result->save();
+	} catch (\Exception $ex) {
+		echo "\n";
+		echo $ex->getMessage();
+		echo "\n";
+	}
+	return response(StandarResponse::OK($result), 200);
 }
  /**
      * Remove the specified resource from storage.
@@ -72,5 +90,7 @@ public function update(Request $request, $id)
              */
 public function destroy($id)
 {
+	$count = Reserva::destroy($id);
+	return response(StandarResponse::OK($id), 200);
 }
 }

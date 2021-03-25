@@ -23,20 +23,20 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
              */
-				public function store(Request $request)
-				{
-					try {
-						$result = new Permiso;
-						$result->user_id= $request->user_id;
-						$result->tipo_usuario= $request->tipo_usuario;
-						$result->save();
-					} catch (\Exception $ex) {
-						echo "\n";
-						echo $ex->getMessage();
-						echo "\n";
-					}
-					return response(StandarResponse::OK($result), 201);
-				}
+	public function store(Request $request)
+	{
+		try {
+			$result = new Permiso;
+			$result->user_id= $request->user_id;
+			$result->tipo_usuario= $request->tipo_usuario;
+			$result->save();
+		} catch (\Exception $ex) {
+			echo "\n";
+			echo $ex->getMessage();
+			echo "\n";
+		}
+		return response(StandarResponse::OK($result), 201);
+	}
  /**
      * Display the specified resource.
      *
@@ -56,6 +56,17 @@ class PermisoController extends Controller
              */
 public function update(Request $request, $id)
 {
+	try {
+		$result = Permiso::find($id);
+		$result->user_id= $request->user_id;
+		$result->tipo_usuario= $request->tipo_usuario;
+		$result->save();
+	} catch (\Exception $ex) {
+		echo "\n";
+		echo $ex->getMessage();
+		echo "\n";
+	}
+	return response(StandarResponse::OK($result), 200);
 }
  /**
      * Remove the specified resource from storage.
@@ -65,5 +76,7 @@ public function update(Request $request, $id)
              */
 public function destroy($id)
 {
+	$count = Permiso::destroy($id);
+	return response(StandarResponse::OK($id), 200);
 }
 }

@@ -60,6 +60,21 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try {
+            $result = Vehiculo::find($id);
+            $result->nombreVehiculo = $request->nombreVehiculo;
+            $result->marcaModelo = $request->marcaModelo;
+            $result->matricula = $request->matricula;
+            $result->anoCompra = $request->anoCompra;
+            $result->estado = $request->estado;
+            $result->observaciones = $request->observaciones;
+            $result->save();
+        } catch (\Exception $ex) {
+            echo "\n";
+            echo $ex->getMessage();
+            echo "\n";
+        }
+        return response(StandarResponse::OK($result), 200);
     }
     /**
      * Remove the specified resource from storage.
@@ -69,5 +84,7 @@ class VehiculoController extends Controller
      */
     public function destroy($id)
     {
+        $count = Vehiculo::destroy($id);
+        return response(StandarResponse::OK($id), 200);
     }
 }
